@@ -1,0 +1,26 @@
+﻿@model HomeViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Weather News</h1>
+</div>
+
+<form method="post">
+    <div class="mb-2">
+        <label asp-for="Place" class="form-label"></label>
+        <input asp-for="Place" type="text" class="form-control" />
+        <span asp-validation-for="Place" class="text-danger"> </span>
+    </div>
+    <button class="btn btn-primary">Find Out</button>
+</form>
+
+@if (Model?.Place != null)
+{
+    <div class="card mt-4">
+        <div class="card-body d-flex align-items-center justify-content-center py-5">
+            <span class="h1">@Model.Place: @Model.Temperature °C</span>
+        </div>
+    </div>
+}
